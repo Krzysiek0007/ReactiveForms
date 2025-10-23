@@ -61,6 +61,7 @@ import { Router } from '@angular/router';
                 </div>
 
                 <div class="mt-4 d-flex justify-content-end">
+                  <button type="button" class="btn btn-secondary me-2" (click)="resetForm()">Anuluj</button>
                   <button type="submit" class="btn btn-primary" [disabled]="applyForm.invalid">
                     Zapisz
                   </button>
@@ -91,6 +92,12 @@ export class Home {
 
   submitApplication() {
     this.router.navigate(['/form/done']);
+  }
+
+  resetForm() {
+    this.applyForm.reset();
+    this.applyForm.markAsPristine();
+    this.applyForm.markAsUntouched();
   }
 }
 
