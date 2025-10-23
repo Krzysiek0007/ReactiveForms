@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
     <div class="container py-4">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <div class="card shadow-sm">
+          <div class="card shadow-lg">
             <div class="card-body">
               <h2 class="card-title mb-3">Podsumowanie</h2>
 
