@@ -4,7 +4,7 @@ import {Done} from './done/done';
 
 export const routes: Routes = [
 {
-    path: '',
+    path: 'form',
     component: Home,
     title: 'Home page',
   },
