@@ -1,15 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, signal, Signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-done',
   imports: [],
   template: `
-    <p>
-      done works!
-    </p>
+    <div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h2 class="card-title mb-3">Podsumowanie</h2>
+
+              @if (data()) {
+                <ul class="list-group mb-3">
+                  <li class="list-group-item"><strong>Imię:</strong> {{ data().firstName }}</li>
+                  <li class="list-group-item"><strong>Nazwisko:</strong> {{ data().lastName }}</li>
+                  <li class="list-group-item"><strong>Data urodzenia:</strong> {{ data().birthday }}</li>
+                  <li class="list-group-item"><strong>Wzrost (cm):</strong> {{ data().growth }}</li>
+                </ul>
+              } @else {
+                <div class="alert alert-secondary">Brak danych do wyświetlenia.</div>
+              }
+
+              <div class="d-flex justify-content-end">
+                <button class="btn btn-secondary" (click)="goBack()">Powrót</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   `,
   styles: ``,
 })
 export class Done {
+  data: Signal<any> = signal(history.state.formData || null);
 
+  constructor(private router: Router) {
+
+  }
+
+  goBack() {
+    this.router.navigate(['/form']);
+  }
 }

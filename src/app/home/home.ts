@@ -91,7 +91,9 @@ export class Home {
   get growth() { return this.applyForm.get('growth'); }
 
   submitApplication() {
-    this.router.navigate(['/form/done']);
+    this.router.navigate(['/form/done'], {
+      state: { formData: this.applyForm.value }
+    });
   }
 
   resetForm() {
