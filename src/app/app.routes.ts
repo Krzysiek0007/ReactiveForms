@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import { Home } from './home/home';
-import { Done } from './done/done';
-import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
   {
@@ -16,8 +14,12 @@ export const routes: Routes = [
   },
   {
     path: 'form/done',
-    component: Done,
+    loadComponent: () => import('./done/done').then(m => m.Done),
     title: 'Done page',
   },
-  { path: '**', component: NotFound },
+  { 
+    path: '**', 
+    loadComponent: () => import('./not-found/not-found').then(m => m.NotFound),
+    title: 'Not Found', 
+  },
 ];
