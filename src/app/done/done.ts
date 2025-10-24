@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [],
   templateUrl: `./done.html`,
-  styles: ``,
+  styleUrl: '../app.css', 
 })
 export class Done {
   data: Signal<any> = signal(history.state.formData || null);

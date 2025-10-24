@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: `./home.html`,
+  styleUrl: '../app.css', 
 })
 export class Home {
   constructor(private router: Router) {}
