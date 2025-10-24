@@ -3,35 +3,9 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-done',
+  standalone: true,
   imports: [],
-  template: `
-    <div class="container py-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="card shadow-lg">
-            <div class="card-body">
-              <h2 class="card-title mb-3">Podsumowanie</h2>
-
-              @if (data()) {
-                <ul class="list-group mb-3">
-                  <li class="list-group-item"><strong>Imię:</strong> {{ data().firstName }}</li>
-                  <li class="list-group-item"><strong>Nazwisko:</strong> {{ data().lastName }}</li>
-                  <li class="list-group-item"><strong>Data urodzenia:</strong> {{ data().birthday }}</li>
-                  <li class="list-group-item"><strong>Wzrost (cm):</strong> {{ data().growth }}</li>
-                </ul>
-              } @else {
-                <div class="alert alert-secondary">Brak danych do wyświetlenia.</div>
-              }
-
-              <div class="d-flex justify-content-end">
-                <button class="btn btn-secondary" (click)="goBack()">Powrót</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `,
+  templateUrl: `./done.html`,
   styles: ``,
 })
 export class Done {

@@ -1,0 +1,100 @@
+<div class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title mb-3">Dane osobowe</h2>
+
+              <form [formGroup]="applyForm" (ngSubmit)="submitApplication()">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="first-name" class="form-label">Imię</label>
+                    <input
+                      id="first-name"
+                      type="text"
+                      class="form-control"
+                      formControlName="firstName"
+                    />
+                    @if (firstName?.invalid && (firstName?.touched || firstName?.dirty)) {
+                    <div class="text-danger small mt-1">
+                      @if (firstName?.errors?.['required']) {
+                      <div>Imię jest wymagane.</div>
+                      }
+                    </div>
+                    }
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="last-name" class="form-label">Nazwisko</label>
+                    <input
+                      id="last-name"
+                      type="text"
+                      class="form-control"
+                      formControlName="lastName"
+                    />
+                    @if (lastName?.invalid && (lastName?.touched || lastName?.dirty)) {
+                    <div class="text-danger small mt-1">
+                      @if (lastName?.errors?.['required']) {
+                      <div>Nazwisko jest wymagane.</div>
+                      }
+                    </div>
+                    }
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="birthday" class="form-label">Data urodzenia</label>
+                    <input
+                      id="birthday"
+                      type="date"
+                      class="form-control"
+                      formControlName="birthday"
+                    />
+                    @if (birthday?.invalid && (birthday?.touched || birthday?.dirty)) {
+                    <div class="text-danger small mt-1">
+                      @if (birthday?.errors?.['invalidDate']) {
+                      <div>Nieprawidłowa data.</div>
+                      } @if (birthday?.errors?.['outOfRange']) {
+                      <div>
+                        Data musi być między {{ birthday?.errors?.['outOfRange']?.min }} a
+                        {{ birthday?.errors?.['outOfRange']?.max }}.
+                      </div>
+                      }
+                    </div>
+                    }
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="growth" class="form-label">Wzrost (cm)</label>
+                    <input
+                      id="growth"
+                      type="number"
+                      min="0"
+                      class="form-control"
+                      formControlName="growth"
+                    />
+                    @if (growth?.invalid && (growth?.touched || growth?.dirty)) {
+                    <div class="text-danger small mt-1">
+                      @if (growth?.errors?.['min']) {
+                      <div>Wzrost musi być co najmniej 80 cm.</div>
+                      } @if (growth?.errors?.['max']) {
+                      <div>Wzrost nie może przekraczać 250 cm.</div>
+                      }
+                    </div>
+                    }
+                  </div>
+                </div>
+
+                <div class="mt-4 d-flex justify-content-end">
+                  <button type="button" class="btn btn-secondary me-2" (click)="resetForm()">
+                    Anuluj
+                  </button>
+                  <button type="submit" class="btn btn-primary" [disabled]="applyForm.invalid">
+                    Zapisz
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

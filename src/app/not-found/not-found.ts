@@ -10,7 +10,6 @@ import lottie from 'lottie-web';
     <div class="container">
       <div class="error-container text-center">
         <div id="lottieAnimation" style="width: 300px; height: 300px; margin: 0 auto;"></div>
-        <!-- <h1 class="display-1 fw-bold">404</h1> -->
         <h2 class="mb-4">Ups! Strona nie została znaleziona</h2>
         <p class="lead mb-4">
           Przepraszamy, ale strona której szukasz nie istnieje lub została przeniesiona.
@@ -18,37 +17,6 @@ import lottie from 'lottie-web';
         <a routerLink="/" class="btn btn-primary btn-lg"> Wróć do strony głównej </a>
       </div>
     </div>
-  `,
-  styles: `
-    .container {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .error-container {
-      max-width: 600px;
-      padding: 2rem;
-    }
-
-    h1 {
-      color: #dc3545;
-      margin-bottom: 1rem;
-    }
-
-    .btn-primary {
-      background-color: #0d6efd;
-      border-color: #0d6efd;
-      padding: 0.8rem 2rem;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background-color: #0b5ed7;
-      border-color: #0a58ca;
-      transform: translateY(-2px);
-    }
   `,
 })
 export class NotFound implements OnInit {
